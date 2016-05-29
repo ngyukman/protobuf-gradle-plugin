@@ -39,10 +39,12 @@ import org.gradle.api.plugins.AppliedPlugin
 class ProtobufPlugin implements Plugin<Project> {
     // any one of these plugins should be sufficient to proceed with applying this plugin
     private static final List<String> javaPluginOptions = ['java']
+    private static final List<String> csharpPluginOptions = ['msbuild']
     private static final List<String> androidPluginOptions = ['com.android.application',
                                                               'com.android.library',
                                                               'android',
                                                               'android-library']
+
 
     private List<String> pluginsApplied = [];
     private Project project;
@@ -56,6 +58,7 @@ class ProtobufPlugin implements Plugin<Project> {
         // has been applied then we will assume that none of prerequisite plugins were specified and we will
         // throw an Exception to alert the user of this configuration issue.
         applyWithPrerequisitePlugin(javaPluginOptions, 'com.google.protobuf.java')
+        applyWithPrerequisitePlugin(csharpPluginOptions, 'com.google.protobuf.csharp')
         applyWithPrerequisitePlugin(androidPluginOptions, 'com.google.protobuf.android')
 
         project.afterEvaluate {

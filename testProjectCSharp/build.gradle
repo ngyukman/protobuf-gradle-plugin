@@ -1,0 +1,48 @@
+// A sample CSharp project
+
+buildscript {
+    dependencies {
+        classpath "com.ullink.gradle:gradle-msbuild-plugin:2.14"
+        classpath "com.ullink.gradle:gradle-nuget-plugin:2.14"
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply plugin: 'msbuild'
+apply plugin: 'nuget'
+apply plugin: 'com.google.protobuf'
+
+dependencies {
+    protobufCSharp files("lib/protos.tar.gz")
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0-beta-3'
+    }
+    generateProtoTasks {
+        ofCSharpSourceSet('protocolbuffers')*.builtins {
+            csharp {
+                option 'file_extension=.g.cs'
+            }
+        }
+    }
+}
+
+msbuild {
+    solutionFile = 'Sample.sln'
+}
+
+csharpSourceSets {
+    protocolbuffers {
+        proto {
+            srcDir 'src/main/protocolbuffers'
+        }
+    }
+}
+
+msbuild.dependsOn nugetRestore
+build.finalizedBy msbuild

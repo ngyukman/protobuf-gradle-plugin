@@ -153,7 +153,12 @@ public class ProtobufConfigurator {
       extends GenerateProtoTaskCollection {
     public Collection<GenerateProtoTask> ofSourceSet(String sourceSet) {
       return all().findAll { task ->
-        task.sourceSet.name == sourceSet
+        task.sourceSet.name == sourceSet && !task.name.endsWith('CSharp')
+      }
+    }
+    public Collection<GenerateProtoTask> ofCSharpSourceSet(String sourceSet) {
+      return all().findAll { task ->
+        task.sourceSet.name == sourceSet && task.name.endsWith('CSharp')
       }
     }
   }
