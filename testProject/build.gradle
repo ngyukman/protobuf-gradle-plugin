@@ -36,8 +36,8 @@ sourceSets {
   }
 }
 
-def protobufDep = 'com.google.protobuf:protobuf-java:3.0.0-alpha-3'
-def protobufNanoDep = 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-3'
+def protobufDep = 'com.google.protobuf:protobuf-java:3.0.0'
+def protobufNanoDep = 'com.google.protobuf.nano:protobuf-javanano:3.0.0'
 
 dependencies {
   compile protobufDep
@@ -61,7 +61,7 @@ dependencies {
 
 protobuf {
   protoc {
-    artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
+    artifact = 'com.google.protobuf:protoc:3.0.0'
   }
   plugins {
     grpc {

@@ -72,7 +72,7 @@ android {
 
 protobuf {
   protoc {
-    artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
+    artifact = 'com.google.protobuf:protoc:3.0.0'
   }
   plugins {
     grpc {
@@ -100,7 +100,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.squareup.okhttp:okhttp:2.7.5'
     compile 'javax.annotation:javax.annotation-api:1.2'
-    compile 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-3'
+    compile 'com.google.protobuf.nano:protobuf-javanano:3.0.0'
     compile 'io.grpc:grpc-core:0.7.0'
     compile 'io.grpc:grpc-okhttp:0.7.0'
     compile 'io.grpc:grpc-stub:0.7.0'
