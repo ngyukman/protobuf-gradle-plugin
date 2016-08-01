@@ -165,9 +165,9 @@ that we have published on Maven Central:
 protobuf {
   ...
   // Configure the protoc executable
-  protoc {
+  protoc {
     // Download from repositories
-    artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
+    artifact = 'com.google.protobuf:protoc:3.0.0'
   }
   ...
 }
@@ -177,8 +177,8 @@ You may also specify a local path.
 ```gradle
 protobuf {
   ...
-  protoc {
-    path = '/usr/local/bin/protoc'
+  protoc {
+    path = '/usr/local/bin/protoc'
   }
   ...
 }
@@ -197,19 +197,19 @@ defined here.
 protobuf {
   ...
   // Configure the codegen plugins
-  plugins {
+  plugins {
     // Define a plugin with name 'grpc'
-    grpc {
-      artifact = 'io.grpc:protoc-gen-grpc-java:0.1.0-SNAPSHOT'
-      // or
-      path = 'tools/protoc-gen-grpc-java'
-    }
+    grpc {
+      artifact = 'io.grpc:protoc-gen-grpc-java:0.1.0-SNAPSHOT'
+      // or
+      path = 'tools/protoc-gen-grpc-java'
+    }
     xrpc {
-      path = 'tools/protoc-gen-xrpc'
+      path = 'tools/protoc-gen-xrpc'
     }
     // Any other plugins
     ...
-  }
+  }
   ...
 }
 ```
@@ -235,11 +235,11 @@ DONOTs:
 ```gradle
 protobuf {
   ...
-  generateProtoTasks {
-    // all() returns the collection of all protoc tasks
-    all().each { task ->
+  generateProtoTasks {
+    // all() returns the collection of all protoc tasks
+    all().each { task ->
       // Here you can configure the task
-    }
+    }
 
     // In addition to all(), you may get the task collection by various
     // criteria:
@@ -354,7 +354,7 @@ and is configurable. E.g.,
 ```gradle
 protobuf {
   ...
-  generatedFilesBaseDir = "$projectDir/src/generated"
+  generatedFilesBaseDir = "$projectDir/src/generated"
 }
 ```
 
